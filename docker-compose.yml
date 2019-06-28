@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules # keep /app/node_modules
+      - .:/app # map current directory to /app
+  tests: # service fo testing purposes
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules # keep /app/node_modules
+      - .:/app # map current directory to /app
+    command: ["npm", "run", "test"]
+  
