@@ -6,4 +6,4 @@ before_install:
   - docker build -t makuat/docker-react -f Dockerfile.dev .
 
 script:
-  - npm run makuat/docker-react npm run test -- --coverage
+  - docker run makuat/docker-react npm run test -- --coverage
